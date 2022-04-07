@@ -6,7 +6,7 @@ function createWebSocket(path) {
 function setDefaultUri() {
   var host = window.location.hostname;
   if (host == '') host = 'localhost';
-  var uri = 'wws://' + host + '/channel';
+  var uri = 'wss://' + host + '/channel';
   $('#ws-uri').val(uri);
 }
 
@@ -77,16 +77,16 @@ $(document).ready(function () {
   $('#message-form').submit(function () {
     var text = $('#text').val();
     if (ws === null) {
-      var jwt = $('#jwt').val();
+      var token = $('#jwt').val();
       var channel = $('#channel').val();
 
-      meta = createWebSocket('/server-info/' + jwt);
+      meta = createWebSocket('/server-info/' + token);
       meta.onmessage = onMessage('#meta-messages');
 
       if (channel == "") {
-        ws = createWebSocket('/' + jwt);
+        ws = createWebSocket('/' + token);
       } else {
-        ws = createWebSocket('/' + channel + '/' + jwt);
+        ws = createWebSocket('/' + channel + '/' + token);
       }
 
       ws.onopen = function () {
