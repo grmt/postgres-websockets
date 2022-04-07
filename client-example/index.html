@@ -21,24 +21,24 @@
                 <br />
                 <input type="text" id="ws-uri" value="" />
                 <br />
-                <label for="channel">Chat Channel</label>
+                <label for="channel">Alert Channel</label>
                 <br />
-                <input type="text" id="channel" value="chat" />
+                <input type="text" id="channel" value="alert.7" />
                 <br />
                 <label for="jwt">JWT</label>
                 <br />
                 <textarea id="jwt" cols="50" rows="5"></textarea>
             </form>
         </div>
-        <div id="chat-section">
-            <h2>Chat</h2>
+        <div id="alert-section">
+            <h2>Alert</h2>
             <form id="message-form" action="">
-                <label for="text">Type a message and hit send to trigger a database notify in the chat channel</label>
+                <label for="text">Type a message and hit send to trigger a database notify in the alert channel</label>
                 <input id="text" type="text" size="40" />
                 <input id="send" type="submit" value="Send" />
             </form>
             <br />
-            <h2>Messages sent to chat channel</h2>
+            <h2>Messages sent to alert channel</h2>
             <div id="messages">
             </div>
             <h2>Messages sent to meta channel</h2>

@@ -53,7 +53,7 @@ ul#users {
     overflow: auto;
 }
 
-div#chat-section {
+div#alert-section {
     float: left;
     margin: 10px;
 }

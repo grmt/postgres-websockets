@@ -60,7 +60,7 @@ source sample-env && ~/.local/bin/postgres-websockets
 After running the above command, open your browser on http://localhost:3000 to see an example of usage.
 
 The sample config file provided in the [sample-env](https://github.com/diogob/postgres-websockets/tree/master/sample-env) file comes with a jwt secret just for testing and is used in the sample client.
-Note that the `sample-env` points to `./database-uri.txt` to load the URI from an external file. This is determined by the use of `@` as a prefix to the value of the variable `PGWS_DB_URI`. 
+Note that the `sample-env` points to `./database-uri.txt` to load the URI from an external file. This is determined by the use of `@` as a prefix to the value of the variable `PGWS_DB_URI`.
 This is entirely optional and the URI could be exported directly as `PGWS_DB_URI` without using the prefix `@`.
 You will find the complete sources for the example under the folder [client-example](https://github.com/diogob/postgres-websockets/tree/master/client-example).
 To run the server without giving access to any static files, one can unset the variable `PGWS_ROOT_PATH`.
@@ -76,7 +76,7 @@ When you request access to a channel called `chat` the address of the websockets
 ws://chat/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtb2RlIjoicncifQ.QKGnMJe41OFZcjz_qQSplmWAmVd_hmVjijKUNoJYpis
 ```
 When the token contains a `channels` claim, the value of that claim should be a list of allowed channels.
-Any requested channel not set in that claim will result in an error opening the connection. 
+Any requested channel not set in that claim will result in an error opening the connection.
 Tokens without the `channels` claim (like the example above) are capable of opening connections to any channel, so be careful when issuing those.
 
 

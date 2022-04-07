@@ -1,0 +1,6 @@
+FROM ubuntu
+
+RUN apt-get update && apt-get upgrade -y && apt-get install -y ghc libpq-dev haskell-stack zlib1g-dev
+
+RUN wget -qO- https://get.haskellstack.org/ | sh
+RUN stack config set system-ghc --global true

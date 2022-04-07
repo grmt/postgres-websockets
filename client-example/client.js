@@ -6,7 +6,7 @@ function createWebSocket(path) {
 function setDefaultUri() {
   var host = window.location.hostname;
   if (host == '') host = 'localhost';
-  var uri = 'ws://' + host + ':3000';
+  var uri = 'wws://' + host + '/channel';
   $('#ws-uri').val(uri);
 }
 
@@ -63,7 +63,7 @@ function jwt() {
     payload = {
       mode: 'rw'
     },
-    key = 'auwhfdnskjhewfi34uwehdlaehsfkuaeiskjnfduierhfsiweskjcnzeiluwhskdewishdnpwe';
+    key = 'buwhfdnskjhewfi34uwehdlaehsfkuaeiskjnfduierhfsiweskjcnzeiluwhskdewishdnpwe';
   return sign(alg, header, payload, key).result;
 }
 

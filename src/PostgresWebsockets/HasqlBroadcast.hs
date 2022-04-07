@@ -68,7 +68,7 @@ tryUntilConnected maxRetries =
 --
 --   This function also spawns a thread that keeps relaying the messages from the database to the multiplexer's listeners
 --
---   To listen on channels *chat*
+--   To listen on channels *alert*
 --
 --   @
 --   import Protolude
@@ -81,7 +81,7 @@ tryUntilConnected maxRetries =
 --    let con = either (panic . show) id conOrError :: Connection
 --    multi <- newHasqlBroadcaster con
 --
---    onMessage multi "chat" (\ch ->
+--    onMessage multi "alert" (\ch ->
 --      forever $ fmap print (atomically $ readTChan ch)
 --   @
 newHasqlBroadcasterForChannel :: IO () -> Text -> Maybe Int -> IO Connection -> IO Multiplexer

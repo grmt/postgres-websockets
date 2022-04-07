@@ -1,0 +1,33 @@
+## PostgreSQL URI where the server will connect to issue NOTIFY and LISTEN commands
+export PGWS_DB_URI="@./database-uri.txt"
+
+## Size of connection pool used to issue notify commands (LISTEN commands are always issued on the same connection that is not part of the pool).
+export PGWS_POOL_SIZE=10
+
+## Root path can be used to serve some static files for convenience when testing.
+export PGWS_ROOT_PATH="./client-example"
+
+## Sends a copy of every message received from websocket clients to the channel specified bellow as an aditional NOTIFY command.
+export PGWS_LISTEN_CHANNEL="postgres-websockets-listener"
+
+## Send postgres-websockets server events to this channel (will be sent both to the database and the connected websocket clients)
+export PGWS_META_CHANNEL="server-info"
+
+## Host and port on which the websockets server (and the static files server) will be listening.
+export PGWS_HOST="*4"
+export PGWS_PORT=3003
+
+## choose a secret to enable JWT auth
+## (use "@filename" to load from separate file)
+export PGWS_JWT_SECRET="buwhfdnskjhewfi34uwehdlaehsfkuaeiskjnfduierhfsiweskjcnzeiluwhskdewishdnpwe"
+export PGWS_JWT_SECRET_BASE64=False
+
+echo $PGWS_JWT_SECRET
+
+## Check database listener every 10 seconds
+## comment it out to disable and shutdown the server on listener errors (can be useful when using external process supervisors)
+export PGWS_CHECK_LISTENER_INTERVAL=10000
+
+## Place server.crt and server.key in the working directory and uncomment the following lines for TLS connections (wss)
+# export PGWS_CERTIFICATE_FILE="./certificate.pem"
+# export PGWS_KEY_FILE="./key.pem"
